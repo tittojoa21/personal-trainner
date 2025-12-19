@@ -660,3 +660,184 @@ footer {
         font-size: 1.7rem;
     }
 }
+/* Estilos para la imagen del título y matrícula */
+.certificado-container {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.certificado-img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 10px;
+    border: 3px solid var(--rosa);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.certificado-img:hover {
+    transform: scale(1.05);
+}
+
+.certificado-info {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: var(--rosa-claro);
+    border-radius: 8px;
+}
+
+.certificado-info p {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.certificado-info i {
+    color: var(--lila);
+}
+
+.matricula-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.matricula-numero h4 {
+    font-size: 2.5rem;
+    color: var(--lila);
+    margin: 15px 0;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.matricula-numero p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.matricula-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background-color: #e8f5e9;
+    border-radius: 25px;
+    color: #4caf50;
+    font-weight: 600;
+}
+
+.matricula-status i {
+    font-size: 1.2rem;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: auto;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--blanco);
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: var(--lila);
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: var(--rosa);
+}
+
+.modal-img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    border: 3px solid var(--lila);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-info {
+    margin-top: 20px;
+    text-align: center;
+    padding: 15px;
+    background-color: var(--gris-claro);
+    border-radius: 10px;
+}
+
+.modal-info h3 {
+    color: var(--lila);
+    margin-bottom: 10px;
+}
+
+.modal-info p {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #555;
+}
+
+.modal-info i {
+    color: var(--lila);
+}
+
+/* Responsive para el modal */
+@media (max-width: 768px) {
+    .certificado-img {
+        max-width: 220px;
+    }
+    
+    .matricula-numero h4 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+    
+    .modal-content {
+        padding: 20px;
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .certificado-img {
+        max-width: 180px;
+    }
+    
+    .matricula-numero h4 {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+}

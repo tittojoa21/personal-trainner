@@ -104,6 +104,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // ========== MODAL PARA EL TÍTULO ==========
+    const certificadoImg = document.querySelector('.certificado-img');
+    const modal = document.getElementById('certificado-modal');
+    const closeModal = document.querySelector('.close-modal');
+    
+    if (certificadoImg && modal) {
+        // Abrir modal al hacer clic en la imagen
+        certificadoImg.addEventListener('click', function() {
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // Cerrar modal
+        closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Cerrar modal al hacer clic fuera de la imagen
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Cerrar modal con tecla ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && modal.style.display === 'flex') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+    
     // ========== ANIMACIÓN DE SCROLL SUAVE ==========
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -143,51 +178,6 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
     
-    // Observar las tarjetas de frases
-    document.querySelectorAll('.quote-card').forEach(card => {
-        observer.observe(card);
-    });
-    
-    // ========== FUNCIONALIDAD PARA CARGAR TÍTULO Y MATRÍCULA ==========
-    // Esta función simula la carga de datos desde una fuente externa
-    // En un caso real, estos datos vendrían de una base de datos o API
-    
-    function cargarInformacionProfesional() {
-        // Simulamos una demora de carga (2 segundos)
-        setTimeout(function() {
-            // En un caso real, aquí harías una petición a un servidor
-            // Por ahora, usamos datos de ejemplo
-            
-            const tituloPlaceholder = document.getElementById('titulo-placeholder');
-            const matriculaPlaceholder = document.getElementById('matricula-placeholder');
-            
-            // Datos de ejemplo - puedes reemplazarlos con los reales
-            const tituloEjemplo = "Personal Trainer Certificada";
-            const matriculaEjemplo = "MAT-2023-7890";
-            
-            // Actualizar los placeholders con la información
-            if (tituloPlaceholder) {
-                tituloPlaceholder.innerHTML = `
-                    <p><i class="fas fa-graduation-cap"></i> ${tituloEjemplo}</p>
-                    <p class="info-note">(Esta información se cargará automáticamente cuando esté disponible)</p>
-                `;
-            }
-            
-            if (matriculaPlaceholder) {
-                matriculaPlaceholder.innerHTML = `
-                    <p><i class="fas fa-id-badge"></i> ${matriculaEjemplo}</p>
-                    <p class="info-note">(Esta información se cargará automáticamente cuando esté disponible)</p>
-                `;
-            }
-            
-            console.log("Información profesional cargada (datos de ejemplo)");
-            
-        }, 2000); // Simula 2 segundos de carga
-    }
-    
-    // Llamar a la función para cargar la información
-    cargarInformacionProfesional();
-    
     // ========== EFECTO DE SCROLL EN EL HEADER ==========
     window.addEventListener('scroll', function() {
         const header = document.querySelector('header');
@@ -200,27 +190,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // ========== CONTADOR DE FRASES VISITADAS ==========
-    // Contar cuántas frases se han mostrado en el carrusel
-    let frasesMostradas = 0;
-    
-    // Incrementar contador cada vez que cambia el slide
-    const originalShowSlide = showSlide;
-    showSlide = function(n) {
-        originalShowSlide(n);
-        frasesMostradas++;
-        
-        // Mostrar mensaje después de ver 5 frases
-        if (frasesMostradas === 5) {
-            console.log("¡Has visto 5 frases motivacionales! Esperamos que te inspiren.");
-        }
-    };
-    
     // ========== INICIALIZACIÓN ==========
     console.log("Página de Luciana Gala - Personal Trainer cargada correctamente");
+    console.log("Matrícula profesional: 00004439");
     
     // Mostrar mensaje de bienvenida
     setTimeout(function() {
-        console.log("¡Bienvenido a la página de Luciana Gala! Esperamos que encuentres inspiración para tu transformación física.");
+        console.log("¡Bienvenido a la página de Luciana Gala! Personal Trainer Certificada - Matrícula N° 00004439");
     }, 1000);
+    
+    // Prevenir errores si la imagen no existe
+    window.addEventListener('error', function(e) {
+        if (e.target.tagName === 'IMG' && e.target.src.includes('titulo-mama.jpg')) {
+            console.warn('La imagen del título no se pudo cargar. Verifica que el archivo "titulo-mama.jpg" esté en la misma carpeta.');
+            const certificadoContainer = document.querySelector('.certificado-container');
+            if (certificadoContainer) {
+                certificadoContainer.innerHTML = `
+                    <div class="image-error">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>La imagen del título no se pudo cargar</p>
+                        <p>Matrícula: <strong>00004439</strong></p>
+                    </div>
+                `;
+            }
+        }
+    }, true);
 });

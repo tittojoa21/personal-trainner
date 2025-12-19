@@ -58,17 +58,27 @@
                         <i class="fas fa-user-graduate"></i>
                     </div>
                     <h3>Título Profesional</h3>
-                    <div class="info-placeholder" id="titulo-placeholder">
-                        <p><i class="fas fa-clock"></i> Título a cargar próximamente</p>
+                    <div class="certificado-container">
+                        <img src="titulo-mama.jpg" alt="Título Profesional de Luciana Gala" class="certificado-img">
+                        <div class="certificado-info">
+                            <p><i class="fas fa-check-circle"></i> Título Certificado</p>
+                        </div>
                     </div>
                 </div>
                 <div class="about-card">
                     <div class="about-icon">
                         <i class="fas fa-id-card"></i>
                     </div>
-                    <h3>Número de Matrícula</h3>
-                    <div class="info-placeholder" id="matricula-placeholder">
-                        <p><i class="fas fa-clock"></i> Matrícula a cargar próximamente</p>
+                    <h3>Matrícula Profesional</h3>
+                    <div class="matricula-info">
+                        <div class="matricula-numero">
+                            <h4>00004439</h4>
+                            <p>Número de Matrícula Oficial</p>
+                        </div>
+                        <div class="matricula-status">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Activa y Vigente</span>
+                        </div>
                     </div>
                 </div>
                 <div class="about-card">
@@ -82,7 +92,11 @@
         </div>
     </section>
 
-    
+    <!-- Sección Frases Motivacionales -->
+    <section class="quotes">
+        <div class="container">
+            
+            
             <div class="quote-carousel">
                 <div class="carousel-container">
                     <div class="carousel-slide active">
@@ -138,7 +152,7 @@
                             <i class="fas fa-dumbbell"></i>
                             <div>
                                 <h4>Profesión</h4>
-                                <p>Personal Trainer</p>
+                                <p>Personal Trainer Certificada</p>
                             </div>
                         </div>
                     </div>
@@ -152,7 +166,6 @@
                         </a>
                         <p class="whatsapp-note">Haz clic para enviar un mensaje directo</p>
                     </div>
-                    
                 </div>
             </div>
         </div>
@@ -164,7 +177,7 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <h3>Luciana Gala</h3>
-                    <p>Personal Trainer</p>
+                    <p>Personal Trainer Certificada</p>
                 </div>
                 
                 <div class="footer-links">
@@ -177,14 +190,15 @@
                 </div>
                 
                 <div class="footer-contact">
-                    <h4>Contacto</h4>
+                    <h4>Información Profesional</h4>
                     <p><i class="fab fa-whatsapp"></i> +54 3472 55-8896</p>
+                    <p><i class="fas fa-id-badge"></i> Matrícula: 00004439</p>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Luciana Gala - Personal Trainer. Todos los derechos reservados.</p>
-                <p>Diseñado por Titojoa </p>
+                <p>&copy; 2025 Luciana Gala - Personal Trainer.</p>
+                <p>Diseñado por Titojoa</p>
             </div>
         </div>
     </footer>
@@ -194,6 +208,19 @@
         <a href="https://wa.me/543472558896?text=Hola%20Luciana,%20estoy%20interesado/a%20en%20tus%20servicios%20de%20Personal%20Trainer" target="_blank">
             <i class="fab fa-whatsapp"></i>
         </a>
+    </div>
+
+    <!-- Modal para ver el título en grande -->
+    <div id="certificado-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img src="titulo-mama.jpg" alt="Título Profesional de Luciana Gala" class="modal-img">
+            <div class="modal-info">
+                <h3>Certificado Profesional</h3>
+                <p><i class="fas fa-id-badge"></i> Matrícula: <strong>00004439</strong></p>
+                <p><i class="fas fa-user"></i> Luciana Gala - Personal Trainer</p>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
